@@ -7,8 +7,9 @@
 </head>
 
 <body>
+
     <div class="popup" id="js-popup">
-      
+
         <div class="popup-inner">
             <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
             <p>表示部分</p>
@@ -17,6 +18,7 @@
         <div class="black-background" id="js-black-bg"></div>
 
     </div>
+
     <style>
         .popup {
             position: fixed;
@@ -80,6 +82,7 @@
         }
 
     </style>
+    
     <script>
         $(function(){
             var popup = document.getElementById('js-popup');
@@ -89,16 +92,16 @@
             var blackBg = document.getElementById('js-black-bg');
             var closeBtn = document.getElementById('js-close-btn');
 
-            closePopup(blackBg);
-            closePopup(closeBtn);
-
             function closePopup(elem) {
                 if (!elem) return;
                 elem.addEventListener('click', function() {
                     popup.classList.remove('is-show');
                 });
             };
-
+            
+            closePopup(blackBg);
+            closePopup(closeBtn);
+            
         });
     </script>
 </body>
