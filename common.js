@@ -1,35 +1,30 @@
-$(function(){
-  
-    $(document).ready(function() {
-    $(".title").lettering();//文字を１文字づつspanで囲ってくれる関数
+$(function () {
+  $(document).ready(function () {
+    $(".title").lettering(); //文字を１文字づつspanで囲ってくれる関数
     $(".button").lettering();
   });
-  
-  
-  
-  
-  
-  $(document).ready(function() {
+
+  $(document).ready(function () {
     animation();
   }, 1000);
-  
-  $('.button').click(function() {
+
+  $(".button").click(function () {
     animation();
   });
-  
-  
-  function animation() {
 
+  function animation() {
     var title1 = new TimelineMax();
 
-    title1.to(".button", 0, {visibility: 'hidden', opacity: 0})//classがbuttonの要素を隠す
+    title1.to(".button", 0, { visibility: "hidden", opacity: 0 }); //classがbuttonの要素を隠す
 
-    title1.staggerFromTo(".title span", 0.5, 
-    {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
-    {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+    title1.staggerFromTo(
+      ".title span",
+      0.5,
+      { ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80 },
+      { ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0 },
+      0.05
+    );
 
-    title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})//classがbuttonの要素を表示
-
-  };
-
+    title1.to(".button", 0.2, { visibility: "visible", opacity: 1 }); //classがbuttonの要素を表示
+  }
 });
