@@ -80,7 +80,7 @@
         }
 
     </style>
-    <script>
+      <script>
         $(function() {
             if (document.cookie.indexOf('visited=yes') === -1) {
                 document.cookie = 'visited=yes; max-age=10';

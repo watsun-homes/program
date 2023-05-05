@@ -10,7 +10,6 @@
 
   </div>
 
-
     <script>
 
     var container = document.getElementById('container');
@@ -34,7 +33,7 @@
       }
     };
 
-    const namaefun= function(namefun=defo) {
+      const namaefun= function(namefun=defo) {
       console.log(`${namefun.ue.air}は${namefun.ai.first}`);
     }
     namaefun();
@@ -46,7 +45,6 @@
 
     const iti = (ni,san) => `${ni}の次は${san}`;
     console.log(iti("2","3"));
-
 
     const nanndemo = (firstname="僕は", land="タツヤ") => {
       if(!firstname){

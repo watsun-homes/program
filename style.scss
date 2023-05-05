@@ -1,21 +1,39 @@
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
 
-$background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);
-$red: #e55643 ;
+$background: linear-gradient(to bottom, #405166 0%, #656f6f 100%);
+$red: #e55643;
 $green: #2b9f5e;
 $yellow: #f1c83c;
 $shadow: #533d4a;
+$fruit: apple;
 
-html{
+@mixin style1 {
+  border: 1px solid #333;
+  padding: 20px;
+  background-color: #eee;
+}
+
+p {
+  @if $fruit ==apple {
+    color: red;
+    ;
+  }
+
+  @else if $fruit ==banana {
+    color: yellow;
+  }
+}
+
+html {
   height: 100%;
 }
 
-body{
+body {
   font-family: 'Fjalla One', sans-serif;
   background: $background;
 }
 
-.container{
+.container {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
@@ -24,7 +42,7 @@ body{
   max-width: 225px;
 }
 
-.button{
+.button {
   float: left;
   position: relative;
   bottom: -65px;
@@ -35,8 +53,8 @@ body{
   opacity: 0;
   visibility: hidden;
   cursor: pointer;
-  
-  span{
+
+  span {
     transform: skew(-10deg);
     display: block;
     float: left;
@@ -44,7 +62,7 @@ body{
   }
 }
 
-h1{
+h1 {
   color: #fff;
   text-transform: uppercase;
   font-size: 42px;
@@ -53,13 +71,17 @@ h1{
   letter-spacing: 2px;
 }
 
-.title{
+h2 {
+  @include style1;
+}
+
+.title {
   transform: translateX(-50%) rotate(-10deg);
   display: block;
   float: left;
   left: 50%;
   position: relative;
-  
+
   span {
     transform: skew(-10deg);
     display: block;
@@ -71,14 +93,24 @@ h1{
   }
 }
 
-.title{
-  &:nth-child(1){
+.title {
+  &:nth-child(1) {
     color: $red;
   }
-  &:nth-child(2){
+
+  &:nth-child(2) {
     color: $green;
   }
-  &:nth-child(3){
+
+  &:nth-child(3) {
     color: $yellow;
+  }
+
+  &:nth-child(4) {
+    display: none;
+  }
+
+  @media(max-width:768px) {
+    max-width: 1000px;
   }
 }

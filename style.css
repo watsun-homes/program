@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+p {
+  color: red;
+}
+
 html {
   height: 100%;
 }
@@ -33,7 +37,8 @@ body {
   transform: skew(-10deg);
   display: block;
   float: left;
-  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px,
+    #533d4a 4px 4px;
 }
 
 h1 {
@@ -43,6 +48,12 @@ h1 {
   margin: 0;
   line-height: 47px;
   letter-spacing: 2px;
+}
+
+h2 {
+  border: 1px solid #333;
+  padding: 20px;
+  background-color: #eee;
 }
 
 .title {
@@ -56,7 +67,8 @@ h1 {
   transform: skew(-10deg);
   display: block;
   float: left;
-  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px,
+    #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
   min-width: 10px;
   min-height: 10px;
   position: relative;
@@ -70,4 +82,12 @@ h1 {
 }
 .title:nth-child(3) {
   color: #f1c83c;
-}/*# sourceMappingURL=style.css.map */
+}
+.title:nth-child(4) {
+  display: none;
+}
+@media (max-width: 768px) {
+  .title {
+    max-width: 1000px;
+  }
+} /*# sourceMappingURL=style.css.map */
