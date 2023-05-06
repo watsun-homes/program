@@ -160,3 +160,15 @@ function clock() {
   clockSecond.style.setProperty("transform", `rotate(${degreeSecond}deg)`);
 }
 setInterval(clock, 1000);
+
+//置き換え
+var oya = document.getElementById("oya");
+var id = document.getElementById("oiu");
+
+var newElement = document.createElement("p");
+var newContent = document.createTextNode("子要素２");
+newElement.appendChild(newContent);
+newElement.setAttribute("id", "child-p2");
+
+id.innerHTML = "<p>えいう<a href='/sample'>リンク</a></p>";
+oya.insertBefore(newElement, id);
