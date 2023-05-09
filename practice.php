@@ -136,6 +136,3 @@
     <div id="oiu"><p>あいう<a href="/">リンク</a></p></div>
 </div>
 </div>
-
-
-<a href="http://" target="_blank" rel="noopener noreferrer"></a>
