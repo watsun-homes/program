@@ -138,8 +138,4 @@
 </div>
 
 
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+<a href="http://" target="_blank" rel="noopener noreferrer"></a>
