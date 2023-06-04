@@ -22,7 +22,7 @@ body h2 {
   margin: 0 auto 30px;
 }
 body p {
-  color: yellow;
+  color: #000;
 }
 body .sp {
   display: none;
@@ -289,6 +289,65 @@ main {
   position: absolute;
   top: 200px;
   left: calc(50% - 20px);
+}
+#animation #letter {
+  transform: translate(-50%, -50%);
+  bottom: 0%;
+  left: 50%;
+  display: block;
+  position: absolute;
+  max-width: 225px;
+}
+#animation #letter h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 42px;
+  margin: 0;
+  line-height: 47px;
+  letter-spacing: 2px;
+}
+#animation #letter h1 .letter_title {
+  transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  left: 50%;
+  position: relative;
+}
+#animation #letter h1 .letter_title span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  min-width: 10px;
+  min-height: 10px;
+  position: relative;
+}
+#animation #letter h1 .letter_title:nth-child(1) {
+  color: #e55643;
+}
+#animation #letter h1 .letter_title:nth-child(2) {
+  color: #2b9f5e;
+}
+#animation #letter h1 .letter_title:nth-child(3) {
+  color: #f1c83c;
+}
+#animation #letter .letter_button {
+  float: left;
+  position: relative;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  color: #e55643;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+#animation #letter .letter_button span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
 }
 
 @media (max-width: 480px) {

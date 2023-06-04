@@ -10,12 +10,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="practice.js"></script>
 </head>
 
 <body>
@@ -69,15 +69,6 @@
         <div class="bg" id="bg"></div>
     </div>
 
-    <!-- <div class="popup" id="js-popup">
-        <div class="popup-inner">
-            <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-            <p>表示部分</p>
-        </div>
-        <div class="black-background" id="js-black-bg"></div>
-    </div> -->
-
-
     <main id="main">
 
         <div id="animation">
@@ -90,15 +81,14 @@
             <span class="glow">
                 WATSUN
             </span>
-        </div>
-
-        <div id="letter">
-            <h1>
-                <span class="title">This is</span>
-                <span class="title">a long</span>
-                <span class="title">long title</span>
-            </h1>
-            <div class="button">restart</div>
+            <div id="letter">
+                <h1>
+                    <span class="letter_title">This is</span>
+                    <span class="letter_title">a long</span>
+                    <span class="letter_title">long title</span>
+                </h1>
+                <div class="letter_button">restart</div>
+            </div>
         </div>
 
         <section class="section01">
@@ -300,14 +290,13 @@
                     </div>
                 </div>
             </div>
+
+            <ul id="feedList"></ul>
+
+            <div id="player"></div>
+
+            <div id="object"></div>
         </section>
-
-
-        <ul id="feedList"></ul>
-
-        <div id="player"></div>
-
-        <div id="object"></div>
 
     </main>
 
@@ -320,6 +309,8 @@
         </div>
 
     </footer>
+
+    <script src="practice.js"></script>
 
 </body>
 
