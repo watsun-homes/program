@@ -38,32 +38,32 @@ setInterval(getElements, 1000);
 $(function () {
   //----------------------------文字アニメーション(lettering)↓----------------------
   $(document).ready(function () {
-    $(".title").lettering(); //文字を１文字づつspanで囲ってくれる関数
-    $(".button").lettering();
+    $(".letter_title").lettering(); //文字を１文字づつspanで囲ってくれる関数
+    $(".letter_button").lettering();
   });
 
   $(document).ready(function () {
     animation();
   }, 1000);
 
-  $(".button").click(function () {
+  $(".letter_button").click(function () {
     animation();
   });
 
   function animation() {
     var title1 = new TimelineMax();
 
-    title1.to(".button", 0, { visibility: "hidden", opacity: 0 });
+    title1.to(".letter_button", 0, { visibility: "hidden", opacity: 0 });
 
     title1.staggerFromTo(
-      ".title span",
+      ".letter_title span",
       0.5,
       { ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80 },
       { ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0 },
       0.05
     );
 
-    title1.to(".button", 0.2, { visibility: "visible", opacity: 1 });
+    title1.to(".letter_button", 0.2, { visibility: "visible", opacity: 1 });
   }
 
   //----------------------------文字アニメーション(velocity)↓------------------
@@ -365,36 +365,24 @@ function onYouTubeIframeAPIReady() {
 }
 
 //----------------------------クッキー処理↓------------------------------
-$(function () {
-  if (document.cookie.indexOf("visited=yes") === -1) {
-    document.cookie = "visited=yes; max-age=10";
-    //path=/newsと書くと「/news」というURLのみCookieを追加できる。サイト内全体でチェックしたい場合はpath=/としておく。
-    console.log("初回のアクセスです");
-  } else {
-    console.log("2回目以降のアクセスです");
-    document.cookie = "visited=; path=/";
-  }
-});
-
 function setCount(n) {
-  theDay = 30; //クッキーの保存日時
-  setDay = new Date(); //今日の日時
-  setDay.setTime(setDay.getTime() + theDay * 1000 * 60 * 60 * 24); //クッキーの有効期限作成
-  expDay = setDay.toGMTString(); //日付を文字列へ変換
-  document.cookie = "count=" + n + ";expires=" + expDay; //クッキーの設定。有効期限は訪問後３０日間
+  theDay = 1;
+  setDay = new Date();
+  setDay.setTime(setDay.getTime() + theDay * 1000 * 60 * 60 * 24);
+  expDay = setDay.toGMTString();
+  document.cookie = "count=" + n + ";expires=" + expDay;
 }
 function getCount() {
   theName = "count=";
   theCookie = document.cookie + ";"; //保存されているクッキーを取得
   start = theCookie.indexOf(theName); //取得したクッキーにcount=があるか
   if (start != -1) {
-    end = theCookie.indexOf(";", start); //
-    count = eval(unescape(theCookie.substring(start + theName.length, end)));
-    //保存されているクッキーからcountの値を取得
-    document.write(count + "回目のアクセスです");
-    setCount(count + 1); //表示したら次の値を+1して保存
+    end = theCookie.indexOf(";", start);
+    count = Number(theCookie.substring(start + theName.length, end)); //countの数値を取得。文字列から数字に変更
+    console.log(count + "回目のアクセス");
+    setCount(count + 1); //表示したら値を+1して保存
   } else {
-    document.write("初めてのアクセスですね");
+    console.log("初めてのアクセス");
     setCount(2);
   }
 }
@@ -402,69 +390,69 @@ getCount();
 
 //----------------------------オブジェクト↓------------------------------
 var container = document.getElementById("object");
+var div = document.createElement("div");
+div.setAttribute("class", "child");
+div.innerHTML = "CHILD";
+container.appendChild(div);
 
 for (let i = 0; i < 5; i++) {
-  div = document.createElement("div");
   div.onclick = function () {
     alert("This is box #" + i);
   };
-  container.appendChild(div);
 }
 
-const defo = {
-  ai: {
-    first: "達也",
-    last: "サンプル",
+const profile = {
+  person: {
+    firstName: "太郎",
+    lastName: "山田",
   },
-  ue: {
-    air: "僕",
-    umi: "私",
+  yobi: {
+    man: "僕",
+    woman: "私",
   },
 };
 
-const namaefun = function (namefun = defo) {
-  console.log(`${namefun.ue.air}は${namefun.ai.first}`);
+const introduction = function (nameMan = profile) {
+  console.log(`${nameMan.yobi.man}は${nameMan.person.firstName}`);
 };
-namaefun();
+introduction();
 
-const namae = (name = defo) => {
-  console.log(`${name.ue.air}は${name.ai.first}`);
+const introductionTwo = (nameWoman = profile) => {
+  console.log(`${nameWoman.yobi.woman}は${nameWoman.person.firstName}`);
 };
-namae();
+introductionTwo();
 
 const iti = (ni, san) => `${ni}の次は${san}`;
 console.log(iti("2", "3"));
 
-const nanndemo = (firstname = "僕は", land = "タツヤ") => {
-  if (!firstname) {
-    throw new error("firstnameミス");
+const address = (prefecture = "大阪", land = "日本") => {
+  if (!prefecture) {
+    throw new error("prefectureミス");
   }
   if (!land) {
     throw new error("landミス");
   }
-  return `${firstname}of${land}`;
+  return `${prefecture}of${land}`;
 };
+console.log(address());
+console.log(address("ニューヨーク", "アメリカ"));
 
-console.log(nanndemo());
-console.log(nanndemo("こんにちは", "ああ"));
-
-const person = (first, lasta) => ({
+const person = (first, last) => ({
   fir: first,
-  la: lasta,
+  la: last,
 });
-console.log(person("どう", "かな"));
-//オブジェクトの返却
+console.log(person("たろう", "やまだ"));
 
-const tahoe = {
+const flower = {
   mountains: ["Freel", "Rose", "Tallac", "Rubicon", "Silver"],
   print: function (delay = 1000) {
     setTimeout(() => {
-      console.log(this.mountains.join(","));
-      console.log([...this.mountains]);
+      console.log(this.mountains.join("＋"));
+      console.log([...this.mountains]); //console.log(this.mountains);でもいい
     }, delay);
   },
 };
-tahoe.print();
+flower.print();
 
 const sandwhich = {
   bread: "dutch crunch",
@@ -472,12 +460,9 @@ const sandwhich = {
   cheese: "swiss",
   toppings: ["lettuce", "tomato", "mustard"],
 };
-
 let { toppings, bread, meat, cheese } = sandwhich;
-bread = "変更します";
-console.log(bread);
+console.log(sandwhich);
 console.log(cheese);
-
 console.log(sandwhich.bread, sandwhich.toppings.join(","));
 console.log(toppings);
 
@@ -486,25 +471,25 @@ const kansuudesuk = ({
     lastregular: { firstregular },
   },
 }) => {
-  console.log(`${firstregular} of tatuya`);
+  console.log(`${firstregular} of オブジェクト`);
 };
 const regularPerson = {
-  firstregular: "Bill",
-  lastregular: "Hei",
+  firstregular: "ひとつ",
+  lastregular: "ふたつ",
   spouse: {
-    firstregular: "家",
+    firstregular: "みっつ",
     lastregular: {
-      firstregular: "深いよ",
+      firstregular: "一番深いところ",
     },
   },
 };
 kansuudesuk(regularPerson);
 
-const [, firsthira] = ["ああ", "いい", "うう"];
+const [, , firsthira] = ["ああ", "いい", "うう"];
 console.log(firsthira);
 
 const an = "Tailla";
-const en = 7879;
+const en = 50;
 const anen = () => {
   console.log(`Mt. ${an} is ${en} feet tall`);
 };
@@ -514,12 +499,11 @@ const funHike = {
   anen,
 };
 funHike.anen();
-anen(); //これだけでもいける
+anen(); //これだけでも大丈夫
 
 function directions(...args) {
   let [start, ...remaining] = args;
   let [finish, ...stops] = remaining.reverse();
-
   console.log(`drive through ${args.length} towns`);
   console.log(`start in ${start}`);
   console.log(`the destination is ${finish}`);
